@@ -1,9 +1,5 @@
 name: release
 
-on:
-  push:
-    branches: [main]
-
 changelog:
   exclude:
     labels:
