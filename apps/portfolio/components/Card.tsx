@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { Text } from "./Text";
-import { Repository } from "../graphql/query";
+import Image from 'next/image'
+import { Text } from './Text'
+import { Repository } from '../graphql/query'
 
 export const Card = ({
   createdAt,
@@ -10,21 +10,21 @@ export const Card = ({
   url,
 }: Repository) => {
   return (
-    <li className="relative rounded-sm bg-white p-2 text-black">
+    <li className='relative rounded-sm bg-white p-2 text-black'>
       <h3>
         <a
           href={url}
-          target="_blanck"
-          rel="noopener"
-          className="text-lg uppercase"
+          target='_blanck'
+          rel='noopener'
+          className='text-lg uppercase'
         >
           {name}
         </a>
       </h3>
-      <Text className="left-2" date={new Date(createdAt)}>
+      <Text className='left-2' date={new Date(createdAt)}>
         Created At:
       </Text>
-      <Text className="right-2" date={new Date(updatedAt)}>
+      <Text className='right-2' date={new Date(updatedAt)}>
         Updated At:
       </Text>
       <Image
@@ -34,5 +34,5 @@ export const Card = ({
         height={280}
       />
     </li>
-  );
-};
+  )
+}

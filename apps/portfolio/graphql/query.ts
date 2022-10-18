@@ -1,28 +1,28 @@
-import { gql } from "graphql-request";
+import { gql } from 'graphql-request'
 
 export type UserInfo = {
   viewer: {
-    avatarUrl: string;
-    bio: string;
-    createdAt: string;
-    url: string;
-    twitterUsername: string;
-  };
-};
+    avatarUrl: string
+    bio: string
+    createdAt: string
+    url: string
+    twitterUsername: string
+  }
+}
 
 export type Repository = {
-  name: string;
-  url: string;
-  homepageUrl: string;
-  createdAt: string;
-  updatedAt: string;
-};
+  name: string
+  url: string
+  homepageUrl: string
+  createdAt: string
+  updatedAt: string
+}
 
 export type PackageInfo = {
   viewer: {
-    repository: Repository;
-  };
-};
+    repository: Repository
+  }
+}
 
 export const userInfo = gql`
   {
@@ -34,7 +34,7 @@ export const userInfo = gql`
       twitterUsername
     }
   }
-`;
+`
 
 export const packageInfo = gql`
   query getPackage($package: String!) {
@@ -48,4 +48,4 @@ export const packageInfo = gql`
       }
     }
   }
-`;
+`

@@ -1,11 +1,11 @@
-import { InferGetStaticPropsType, NextPage } from "next";
-import { Layout } from "ui";
-import { getUser } from "../lib/user";
-import { SWRConfig } from "swr";
-import { ContainerCards } from "../components/ContainerCards";
-import { User } from "../components/User";
+import { InferGetStaticPropsType, NextPage } from 'next'
+import { Layout } from 'ui'
+import { getUser } from '../lib/user'
+import { SWRConfig } from 'swr'
+import { ContainerCards } from '../components/ContainerCards'
+import { User } from '../components/User'
 
-type Page = NextPage<InferGetStaticPropsType<typeof getStaticProps>>;
+type Page = NextPage<InferGetStaticPropsType<typeof getStaticProps>>
 
 const Home: Page = ({ fallback, user }) => {
   return (
@@ -15,11 +15,11 @@ const Home: Page = ({ fallback, user }) => {
         <ContainerCards />
       </Layout>
     </SWRConfig>
-  );
-};
+  )
+}
 
 export const getStaticProps = async () => {
-  const user = await getUser();
+  const user = await getUser()
 
   return {
     props: {
@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
         user,
       },
     },
-  };
-};
+  }
+}
 
-export default Home;
+export default Home
