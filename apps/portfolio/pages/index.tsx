@@ -1,10 +1,34 @@
-import { Button } from "ui";
+import { InferGetStaticPropsType, NextPage } from "next";
+import { Layout } from "ui";
+import { getUser } from "../lib/user";
+import { SWRConfig } from "swr";
+import { ContainerCards } from "../components/ContainerCards";
+import { User } from "../components/User";
 
-export default function Docs() {
+type Page = NextPage<InferGetStaticPropsType<typeof getStaticProps>>;
+
+const Home: Page = ({ fallback, user }) => {
   return (
-    <div>
-      <h1>Portfolio</h1>
-      <Button />
-    </div>
+    <SWRConfig value={{ fallback }}>
+      <Layout>
+        <User />
+        <ContainerCards />
+      </Layout>
+    </SWRConfig>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const user = await getUser();
+
+  return {
+    props: {
+      user,
+      fallback: {
+        user,
+      },
+    },
+  };
+};
+
+export default Home;

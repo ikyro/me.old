@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "'04b03'";
+  font-style: normal;
+  src: url('/fonts/04b03/04b03.ttf');
+}
