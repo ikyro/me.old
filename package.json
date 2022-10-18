@@ -9,8 +9,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "dev:blog": "turbo run dev --filter=blog",
+    "dev:portfolio": "turbo run dev --filter=portfolio",
+    "changeset": "changeset && changeset version",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint:actions": "turbo run lint --parallel",
+    "format:actions": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.0",
